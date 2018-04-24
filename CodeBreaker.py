@@ -114,7 +114,7 @@ elif diff in '2':
     print(codeHack)
 elif diff in '3':
     codeCrypt()
-    while attempt != 11:
+    while attempt != 16:
         if trialCrypt() == True:
             break
         else:
