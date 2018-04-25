@@ -92,9 +92,9 @@ else:
 print('What gmae mode would you like to play? Story or single code.')
 print('Game mode needs to be 1 for Story and 2 for Single Code.')
 gameMode = input('>>>')
-if gameMode == 1:
+if gameMode == '1':
     h  = 0
-elif gameMode == 2:
+elif gameMode == '2':
     # Checking the code
     print('Enter a Difficulty. Newbie, Hacker, and Crypt')
     print('Difficulties need to be 1 for Newbie, 2 for Hacker, and 3 for Crypt.')
