@@ -89,49 +89,51 @@ if platform.system == 'Windows':
     os.system('cls')
 else:
     os.system('clear')
-
-#Checking the code
-print('Enter a Difficulty. Newbie, Hacker, and Crypt')
-print('Difficulties need to be 1 for Newbie, 2 for Hacker, and 3 for Crypt.')
-diff = input('>>>')
-if diff in '1':
-    codeNewbie()
-    while attempt != 11:
-        if trialNewbie() == True:
-            break
-        else:
-            attempt += 1
-    print('the Code was:')
-    print(codeNew)
-elif diff in '2':
-    codeHacker()
-    while attempt != 11:
-        if trialHacker() == True:
-            break
-        else:
-            attempt += 1
-    print('the Code was:')
-    print(codeHack)
-elif diff in '3':
-    codeCrypt()
-    while attempt != 11:
-        if trialCrypt() == True:
-            break
-        else:
-            attempt += 1
-    print('the Code was:')
-    print(codeCry)
-elif diff in '4':
-    codeNew = [1, 2, 3, 4]
-    while True:
-        if trialNewbie():
-            print('Test Complete')
-            break
-        else:
-            print('Test is still active')
-            pass
-else:
-    print('Your Difficulty is not an option.  Please choice a new difficulty')
-
-
-
+print('What gmae mode would you like to play? Story or single code.')
+print('Game mode needs to be 1 for Story and 2 for Single Code.')
+gameMode = input('>>>')
+if gameMode == 1:
+    h  = 0
+elif gameMode == 2:
+    # Checking the code
+    print('Enter a Difficulty. Newbie, Hacker, and Crypt')
+    print('Difficulties need to be 1 for Newbie, 2 for Hacker, and 3 for Crypt.')
+    diff = input('>>>')
+    if diff in '1':
+        codeNewbie()
+        while attempt != 11:
+            if trialNewbie() == True:
+                break
+            else:
+                attempt += 1
+        print('the Code was:')
+        print(codeNew)
+    elif diff in '2':
+        codeHacker()
+        while attempt != 11:
+            if trialHacker() == True:
+                break
+            else:
+                attempt += 1
+        print('the Code was:')
+        print(codeHack)
+    elif diff in '3':
+        codeCrypt()
+        while attempt != 11:
+            if trialCrypt() == True:
+                break
+            else:
+                attempt += 1
+        print('the Code was:')
+        print(codeCry)
+    elif diff in '4':
+        codeNew = [1, 2, 3, 4]
+        while True:
+            if trialNewbie():
+                print('Test Complete')
+                break
+            else:
+                print('Test is still active')
+                pass
+    else:
+        print('Your Difficulty is not an option.  Please choice a new difficulty')
