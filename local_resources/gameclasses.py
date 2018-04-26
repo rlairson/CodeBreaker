@@ -86,12 +86,52 @@ class storyMode:
     def LevelOne(self, level, attempt):
         code = []
         code.append(random.randint(0, 4))
-        trial = [int(x) for x in input().split()]
+        trial = [int(x) for x in input('>>>').split()]
         while attempt != 11:
-           mychecker = check.storyCheck(trial, code, 1)
+           mychecker = check.storyCheck(trial, code, level)
            if mychecker == 'You got the code!':
                print(mychecker)
                print(trial)
                level += 1
            else:
                print(trial, mychecker)
+               attempt += 1
+    def LevelTwo(self, level, attempt):
+        code = []
+        code.append(random.randint(0,4))
+        trial = [int(x) for x in input('>>>').split]
+        while attempt != 6:
+            mychecker = check.storyCheck(trial, code, level)
+            if mychecker == 'You got the code!':
+                print(mychecker)
+                print(trial)
+                level += 1
+            else:
+                print(trial, mychecker)
+                attempt += 1
+    def LevelThree(self, level, attempt):
+        code = []
+        code.append(random.randint(0,9))
+        trial = [int(x) for x in input('>>>').split]
+        while attempt != 11:
+            mychecker = check.storyCheck(trial, code, level)
+            if mychecker == 'You got the code!':
+                print(mychecker)
+                print(trial)
+                level += 1
+            else:
+                print(trial, mychecker)
+                attempt += 1
+    def LevelFour(self, level, attempt):
+        code = []
+        code.append(random.randint(0,9))
+        trial = [int(x) for x in input('>>>').split]
+        while attempt != 11:
+            mychecker = check.storyCheck(trial, code, level)
+            if mychecker == 'You got the code!':
+                print(mychecker)
+                print(trial)
+                level += 1
+            else:
+                print(trial, mychecker)
+                attempt += 1

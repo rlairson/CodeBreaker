@@ -5,6 +5,7 @@ from local_resources import gameclasses
 #from colorama import Fore
 import os
 import platform
+import time
 
 
 #List of Variables for the code
@@ -15,6 +16,7 @@ codeCry = []
 cryptTries = []
 hackerTries = []
 newbieTries = []
+level = 1
 #Create the code
 def codeNewbie():
     for i in range(0,4):
@@ -27,7 +29,7 @@ def codeCrypt():
         codeCry.append(randint(0, 20))
 #Trial functions
 def trialNewbie():
-    trial = [int(x) for x in input().split()]
+    trial = [int(x) for x in input('>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.check(trial, codeNew)
     if check == 'You Got the Code!!!':
@@ -39,7 +41,7 @@ def trialNewbie():
         print(trial[0:4], check)
         return False
 def trialHacker():
-    trial = [int(x) for x in input().split()]
+    trial = [int(x) for x in input('>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.check(trial, codeHack)
     if check == 'You Got the Code!!!':
@@ -50,7 +52,7 @@ def trialHacker():
         print(trial[0:4], check)
         return False
 def trialCrypt():
-    trial = [int(x) for x in input().split()]
+    trial = [int(x) for x in input('>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.checkhard(trial, codeCry)
     if check == 'You Got the Code!!!':
@@ -62,29 +64,31 @@ def trialCrypt():
         return False
 #Game starts
 print("""
- __      __       .__                                
-/  \    /  \ ____ |  |   ____  ____   _____   ____   
-\   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \  
- \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/  
-  \__/\  /  \___  >____/\___  >____/|__|_|  /\___  > 
-       \/       \/          \/            \/     \/  
-                ___________                          
-                \__    ___/___                       
-                  |    | /  _ \                      
-                  |    |(  <_> )                     
-                  |____| \____/                      
+ __      __       .__
+/  \    /  \ ____ |  |   ____  ____   _____   ____
+\   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \ 
+ \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/
+  \__/\  /  \___  >____/\___  >____/|__|_|  /\___  >
+       \/       \/          \/            \/     \/
+                ___________
+                \__    ___/___
+                  |    | /  _ \
+                  |    |(  <_> )
+                  |____| \____/
 """)
+time.sleep(5)
 if platform.system == 'Windows':
     os.system('cls')
 else:
     os.system('clear')
 print("""
 _________  ________  ________  __________________________________________   _____   ____  __._____________________
-\_   ___ \ \_____  \ \______ \ \_   _____/\______   \______   \_   _____/  /  _  \ |    |/ _|\_   _____/\______   \ 
+\_   ___ \ \_____  \ \______ \ \_   _____/\______   \______   \_   _____/  /  _  \ |    |/ _|\_   _____/\______   \
 /    \  \/  /   |   \ |    |  \ |    __)_  |    |  _/|       _/|    __)_  /  /_\  \|      <   |    __)_  |       _/
-\     \____/    |    \|    `   \|        \ |    |   \|    |   \|        \/    |    \    |  \  |        \ |    |   \ 
+\     \____/    |    \|    `   \|        \ |    |   \|    |   \|        \/    |    \    |  \  |        \ |    |   \
  \______  /\_______  /_______  /_______  / |______  /|____|_  /_______  /\____|__  /____|__ \/_______  / |____|_  /
         \/         \/        \/        \/         \/        \/        \/         \/        \/        \/         \/ """)
+time.sleep(5)
 if platform.system == 'Windows':
     os.system('cls')
 else:
@@ -99,7 +103,7 @@ elif gameMode == '2':
     print('Enter a Difficulty. Newbie, Hacker, and Crypt')
     print('Difficulties need to be 1 for Newbie, 2 for Hacker, and 3 for Crypt.')
     diff = input('>>>')
-    if diff in '1':
+    if diff == '1':
         codeNewbie()
         while attempt != 11:
             if trialNewbie() == True:
@@ -108,7 +112,7 @@ elif gameMode == '2':
                 attempt += 1
         print('the Code was:')
         print(codeNew)
-    elif diff in '2':
+    elif diff == '2':
         codeHacker()
         while attempt != 11:
             if trialHacker() == True:
@@ -117,7 +121,7 @@ elif gameMode == '2':
                 attempt += 1
         print('the Code was:')
         print(codeHack)
-    elif diff in '3':
+    elif diff == '3':
         codeCrypt()
         while attempt != 11:
             if trialCrypt() == True:
@@ -126,7 +130,7 @@ elif gameMode == '2':
                 attempt += 1
         print('the Code was:')
         print(codeCry)
-    elif diff in '4':
+    elif diff == '4':
         codeNew = [1, 2, 3, 4]
         while True:
             if trialNewbie():
