@@ -29,10 +29,12 @@ class check:
                     correctplace += 1
                 else:
                     incode += 1
+            else:
+                pass
             if correctplace == 1:
                 return 'You got the code!'
             else:
-                return [correctplace, incode]
+                return checkThis,[correctplace, incode]
         elif Level in range(5, 11):
             checkThis = checkThis[0:1]
             againstThis = AgainstThis[0:1]
@@ -85,10 +87,12 @@ class storyMode:
         pass
     def LevelOne(self, level, attempt):
         code = []
+        level = level
         code.append(random.randint(0, 4))
         trial = [int(x) for x in input('>>>').split()]
+        print(trial)
         while attempt != 11:
-           mychecker = check.storyCheck(trial, code, level)
+           mychecker = check.storyCheck(self, trial, code, level)
            if mychecker == 'You got the code!':
                print(mychecker)
                print(trial)
