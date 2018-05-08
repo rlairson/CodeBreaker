@@ -1,4 +1,5 @@
 import random
+#from colorama_master.colorama import Fore, init
 class check:
     def __init__(self):
         pass
@@ -18,13 +19,30 @@ class check:
 
         else:
             return [correctplace, incode]
+    def checkhard(self,checkThis,againstThis,):
+        checkThis = checkThis[0:5]
+        correctplace = 0
+        incode = 0
+        for n in range(0,5):
+            if checkThis[n] in againstThis:
+                if checkThis[n] == againstThis[n]:
+                    correctplace += 1
+                else:
+                    incode += 1
+        if correctplace == 4:
+            return 'You Got the Code!!! '
+
+        else:
+            return [Fore.Red + str(correctplace), Fore.White + str(incode)]
+
+
     def storyCheck(self,checkThis, AgainstThis, Level):
         if Level in range(0, 5):
             checkThis = checkThis[0]
             againstThis = AgainstThis[0]
             correctplace = 0
             incode = 0
-            if checkThis[0] in againstThis:
+            if checkThis in againstThis:
                 if checkThis[0] == againstThis[0]:
                     correctplace += 1
                 else:
@@ -86,9 +104,8 @@ class storyMode:
     def __init__(self):
         pass
     def LevelOne(self, level, attempt):
-        code = []
+        code = random.randint(0, 4)
         level = level
-        code.append(random.randint(0, 4))
         trial = [int(x) for x in input('>>>').split()]
         print(trial)
         while attempt != 11:
@@ -101,8 +118,7 @@ class storyMode:
                print(trial, mychecker)
                attempt += 1
     def LevelTwo(self, level, attempt):
-        code = []
-        code.append(random.randint(0,4))
+        code = random.randint(0,4)
         trial = [int(x) for x in input('>>>').split]
         while attempt != 6:
             mychecker = check.storyCheck(trial, code, level)
@@ -114,8 +130,7 @@ class storyMode:
                 print(trial, mychecker)
                 attempt += 1
     def LevelThree(self, level, attempt):
-        code = []
-        code.append(random.randint(0,9))
+        code = random.randint(0,9)
         trial = [int(x) for x in input('>>>').split]
         while attempt != 11:
             mychecker = check.storyCheck(trial, code, level)
@@ -127,8 +142,7 @@ class storyMode:
                 print(trial, mychecker)
                 attempt += 1
     def LevelFour(self, level, attempt):
-        code = []
-        code.append(random.randint(0,9))
+        code = random.randint(0,9)
         trial = [int(x) for x in input('>>>').split]
         while attempt != 11:
             mychecker = check.storyCheck(trial, code, level)
