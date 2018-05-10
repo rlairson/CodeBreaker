@@ -1,12 +1,12 @@
 #Imports
 from random import randint
 from local_resources import gameclasses
-#from local_resources.colorama_master import colorama
-#from colorama import Fore
+from local_resources.colorama_master.colorama import Fore, Style, init
 import os
 import platform
+import time
 
-
+init()
 #List of Variables for the code
 attempt = 1
 codeNew = []
@@ -27,64 +27,81 @@ def codeCrypt():
         codeCry.append(randint(0, 20))
 #Trial functions
 def trialNewbie():
-    trial = [int(x) for x in input().split()]
+    trial = [int(x) for x in input(Fore.BLUE + '>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.check(trial, codeNew)
     if check == 'You Got the Code!!!':
-        print(check)
+        print(Fore. GREEN + check)
         print(trial[0:4])
         return True
     else:
-        newbieTries.append(trial[0:4])
         print(trial[0:4], check)
         return False
 def trialHacker():
-    trial = [int(x) for x in input().split()]
+    trial = [int(x) for x in input(Fore.BLUE + '>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.check(trial, codeHack)
     if check == 'You Got the Code!!!':
-        print(check)
+        print(Fore.RESET + Fore. GREEN + str(check))
         print(trial[0:4])
         return True
     else:
-        print(trial[0:4], check)
+        print(trial[0:4], Fore.RED + str(check))
         return False
 def trialCrypt():
-    trial = [int(x) for x in input().split()]
+    trial = [int(x) for x in input(Fore.BLUE + '>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.checkhard(trial, codeCry)
     if check == 'You Got the Code!!!':
-        print(check)
+        print(Fore.RESET + Fore. GREEN + str(check))
         print(trial[0:5])
         return True
     else:
-        print(trial[0:5], check)
+        print(trial[0:5], Fore.RED + str(check))
+        return False
+def trialAdmin():
+    trial = [int(x) for x in input(Fore.BLUE + '>>>').split()]
+    mychecker = gameclasses.check()
+    check = mychecker.check(trial, codeNew)
+    if check == 'You Got the Code!!!':
+        print(Fore.RESET + Fore. GREEN + str(check))
+        print(trial[0:4])
+        return True
+
+    else:
+        print(trial[0:4], Fore.RED + str(check))
         return False
 #Game starts
-print("""
- __      __       .__                                
-/  \    /  \ ____ |  |   ____  ____   _____   ____   
-\   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \  
- \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/  
-  \__/\  /  \___  >____/\___  >____/|__|_|  /\___  > 
-       \/       \/          \/            \/     \/  
-                ___________                          
-                \__    ___/___                       
-                  |    | /  _ \                      
-                  |    |(  <_> )                     
-                  |____| \____/                      
-""")
 if platform.system == 'Windows':
     os.system('cls')
 else:
     os.system('clear')
-print("""
+print(Fore.CYAN + """
+ __      __       .__
+/  \    /  \ ____ |  |   ____  ____   _____   ____
+\   \/\/   // __ \|  | _/ ___\/  _ \ /     \_/ __ \\
+ \        /\  ___/|  |_\  \__(  <_> )  Y Y  \  ___/
+  \__/\  /  \___  >____/\___  >____/|__|_|  /\___  >
+       \/       \/          \/            \/     \/
+                ___________
+                \__    ___/___
+                  |    | /  _ \\
+                  |    |(  <_> )
+                  |____| \____/
+""")
+time.sleep(3)
+if platform.system == 'Windows':
+    os.system('cls')
+else:
+    os.system('clear')
+print(Fore.RED + """
 _________  ________  ________  __________________________________________   _____   ____  __._____________________
-\_   ___ \ \_____  \ \______ \ \_   _____/\______   \______   \_   _____/  /  _  \ |    |/ _|\_   _____/\______   \ 
+\_   ___ \ \_____  \ \______ \ \_   _____/\______   \______   \_   _____/  /  _  \ |    |/ _|\_   _____/\______   \\
 /    \  \/  /   |   \ |    |  \ |    __)_  |    |  _/|       _/|    __)_  /  /_\  \|      <   |    __)_  |       _/
-\     \____/    |    \|    `   \|        \ |    |   \|    |   \|        \/    |    \    |  \  |        \ |    |   \ 
+\     \____/    |    \|    `   \|        \ |    |   \|    |   \|        \/    |    \    |  \  |        \ |    |   \\
  \______  /\_______  /_______  /_______  / |______  /|____|_  /_______  /\____|__  /____|__ \/_______  / |____|_  /
-        \/         \/        \/        \/         \/        \/        \/         \/        \/        \/         \/ """)
+        \/         \/        \/        \/         \/        \/        \/         \/        \/        \/         \/ """ + Style.RESET_ALL)
+time.sleep(3)
 if platform.system == 'Windows':
     os.system('cls')
 else:
@@ -93,7 +110,7 @@ else:
 #Checking the code
 print('Enter a Difficulty. Newbie, Hacker, and Crypt')
 print('Difficulties need to be 1 for Newbie, 2 for Hacker, and 3 for Crypt.')
-diff = input('>>>')
+diff = input(Fore.BLUE + '>>>')
 if diff in '1':
     codeNewbie()
     while attempt != 11:
@@ -122,16 +139,14 @@ elif diff in '3':
     print('the Code was:')
     print(codeCry)
 elif diff in '4':
+    print(Fore. MAGENTA + 'Welcome Admin')
     codeNew = [1, 2, 3, 4]
     while True:
-        if trialNewbie():
+        if trialAdmin():
             print('Test Complete')
             break
         else:
             print('Test is still active')
-            pass
+
 else:
     print('Your Difficulty is not an option.  Please choice a new difficulty')
-
-
-
