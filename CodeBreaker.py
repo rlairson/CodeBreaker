@@ -27,6 +27,7 @@ def codeCrypt():
         codeCry.append(randint(0, 20))
 #Trial functions
 def trialNewbie():
+    print('Please enter a 4 digit code and put spaces between the digits like "1 2 3 4".')
     trial = [int(x) for x in input(Fore.BLUE + '>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.check(trial, codeNew)
@@ -38,6 +39,7 @@ def trialNewbie():
         print(trial[0:4], check)
         return False
 def trialHacker():
+    print('Please enter a 4 digit code and put spaces between the digits like "1 2 3 4".')
     trial = [int(x) for x in input(Fore.BLUE + '>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.check(trial, codeHack)
@@ -49,6 +51,7 @@ def trialHacker():
         print(trial[0:4], Fore.RED + str(check))
         return False
 def trialCrypt():
+    print('Please enter a 4 digit code and put spaces between the digits like "1 2 3 4".')
     trial = [int(x) for x in input(Fore.BLUE + '>>>').split()]
     mychecker = gameclasses.check()
     check = mychecker.checkhard(trial, codeCry)
@@ -113,6 +116,7 @@ print('Difficulties need to be 1 for Newbie, 2 for Hacker, and 3 for Crypt.')
 diff = input(Fore.BLUE + '>>>')
 if diff in '1':
     codeNewbie()
+    print('The first set of numbers is your try.  The second set is how many digits are in the correct place and the next is how many are in the code.')
     while attempt != 11:
         if trialNewbie() == True:
             break
@@ -122,6 +126,7 @@ if diff in '1':
     print(codeNew)
 elif diff in '2':
     codeHacker()
+    print('The first set of numbers is your try.  The second set is how many digits are in the correct place and the next is how many are in the code.')
     while attempt != 11:
         if trialHacker() == True:
             break
@@ -131,6 +136,7 @@ elif diff in '2':
     print(codeHack)
 elif diff in '3':
     codeCrypt()
+    print('The first set of numbers is your try.  The second set is how many digits are in the correct place and the next is how many are in the code.')
     while attempt != 16:
         if trialCrypt() == True:
             break
