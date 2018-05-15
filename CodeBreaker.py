@@ -32,11 +32,11 @@ def trialNewbie():
     mychecker = gameclasses.check()
     check = mychecker.check(trial, codeNew)
     if check == 'You Got the Code!!!':
-        print(Fore. GREEN + check)
+        print(Fore.RESET + Fore. GREEN + str(check))
         print(trial[0:4])
         return True
     else:
-        print(trial[0:4], check)
+        print(trial[0:4], Fore.RED + str(check))
         return False
 def trialHacker():
     print('Please enter a 4 digit code and put spaces between the digits like "1 2 3 4".')
